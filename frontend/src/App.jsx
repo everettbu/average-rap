@@ -7,14 +7,16 @@ import Albums from './pages/Albums';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/albums" element={<Albums />} />
-      </Routes>
-    </Router>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/albums" element={<Albums />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

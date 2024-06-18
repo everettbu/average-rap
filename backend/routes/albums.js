@@ -1,27 +1,19 @@
-// backend/routes/albums.js
 const express = require('express');
 const router = express.Router();
-const pool = require('../db');
+const { searchAlbums } = require('../spotifyService');
 
-router.get('/', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM albums');
-    res.json(result.rows);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+router.get('/search', async (req, res) => {
+  const { query } = req.query;
+
+  if (!query) {
+    return res.status(400).json({ error: 'Query parameter is required' });
   }
-});
 
-router.post('/', async (req, res) => {
   try {
-    const { title, artist, year } = req.body;
-    const result = await pool.query(
-      'INSERT INTO albums (title, artist, year) VALUES ($1, $2, $3) RETURNING *',
-      [title, artist, year]
-    );
-    res.json(result.rows[0]);
+    const albums = await searchAlbums(query);
+    res.json(albums);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: 'Error searching albums' });
   }
 });
 

@@ -1,0 +1,32 @@
+average-rap/
+├── backend/
+│   ├── node_modules/
+│   ├── models/
+│   │   └── User.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   └── albums.js
+│   ├── .env
+│   ├── db.js
+│   ├── index.js
+│   ├── package.json
+│   ├── package-lock.json
+├── frontend/
+│   ├── node_modules/
+│   ├── src/
+│   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Albums.jsx
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   ├── index.js
+│   │   └── axios.js
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── index.html
+├── .gitignore
+└── README.md
